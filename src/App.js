@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import { Route, Switch, Link,NavLink } from 'react-router-dom'
+import {Sidebar} from './components/Sidebar/Sidebar'
+import LandingPage from './routes/LandingPage/LandingPage'
+import CarouselPage from './routes/CarouselPage/CarouselPage'
+import MasonryPage from './routes/MasonryPage/MasonryPage'
+class App extends React.Component {
+  state = { hasError: false }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  static getDerivedStateFromError(error) {
+    console.error(error)
+    return { hasError: true }
+  }
+  componentDidMount() {
+
+  }
+
+  render(){
+    return (
+
+      <div className='App'>
+       
+      <main className='App__main'>
+        <Switch>
+      <Route
+        exact path ={'/'}
+        component = {LandingPage}
+      />
+         <Route
+         path ={'/carousel'}
+        component = {CarouselPage}
+      />
+<Route
+         path ={'/Masonry'}
+        component = {MasonryPage}
+      />
+        </Switch>
+
+    </main>
+    <nav className='App__nav'>
+          <Sidebar width={200} height={'100vh'}>
+            <NavLink to = '/'>Home</NavLink>
+            <NavLink to = '/carousel'>Carousel</NavLink>
+            <NavLink to = '/masonry'>Masonry</NavLink>
+            <NavLink to = '/dashboard'>Dashboard</NavLink>
+          </Sidebar>
+        </nav>
     </div>
-  );
+
+    );
+  }
+    
 }
 
 export default App;
