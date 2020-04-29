@@ -26,11 +26,11 @@
 	transform: scale(1.1);
 	transition: all .15s ease-out;
 	
-	&.active {
-		opacity: 1;
-		transform: scale(1);
-	}
 }
+		.carousel__image.active {
+			opacity: 1;
+			transform: scale(1);
+		}
 
 .carousel__button {
 	background: #f2f2f2;
@@ -43,10 +43,11 @@
 	padding: 1rem;
 	transition: all .1s ease-out;
 	
-	&:hover {
-		background: rgba(#f2f2f2, .8);
-	}
 }
+		.carousel__button:hover {
+			background: rgba(#e71b1b, .8);
+			
+		}
 
 .flavor-text {
 	display: block;

@@ -1,5 +1,5 @@
 import React from 'react';
-// import './Carousel.scss';
+import './Carousel.css';
 
 
 
@@ -63,28 +63,7 @@ export default class Carousel extends React.Component{
 		}
 	}
 
-	render() {
-		const { images } = this.props;
-		const { currentIndex, isTransitioning, goingLeft } = this.state;
-		
-		return (
-			<div className="carousel__wrapper">
-				<div className="carousel__container">
-					{images.map((img, index) => {
-						let className = 'carousel__image'
-						if (index === currentIndex) className += ' active';
-						
-						return <img src={img} className={className} key={`img-${index}`} />;
-					})}
-				</div>
-				<div className="carousel__controls">
-					<button className="carousel__button" onClick={this.showPrevSet}><i className="fa fa-arrow-left"></i></button>
-					<button className="carousel__button" onClick={this.showNextSet}><i className="fa fa-arrow-right"></i></button>
-				</div>
-			</div>
-		);
-	}
-	
+
 	showPrevSet = () => {
 		const currentIndex = (this.state.currentIndex - 1 + this.props.images.length) % this.props.images.length;
 		this.setState({ currentIndex });
@@ -94,4 +73,29 @@ export default class Carousel extends React.Component{
 		const currentIndex = (this.state.currentIndex + 1) % this.props.images.length;
 		this.setState({ currentIndex });
 	}
+
+	render() {
+		const { images } = this.props;
+		const { currentIndex, isTransitioning, goingLeft } = this.state;
+		
+		return (
+			<div className="carousel__wrapper">
+                	<p className="flavor-text">React carousel</p>
+				<div className="carousel__container">
+					{images.map((img, index) => {
+						let className = 'carousel__image'
+						if (index === currentIndex) className += ' active';
+						
+						return <img src={img} className={className} key={`img-${index}`} />;
+					})}
+				</div>
+				<div className="carousel__controls">
+					<button className="carousel__button" onClick={this.showPrevSet}>back</button>
+					<button className="carousel__button" onClick={this.showNextSet}>next</button>
+				</div>
+			</div>
+		);
+	}
+	
+
 }

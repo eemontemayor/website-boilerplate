@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from '../../components/Carousel/Carousel'
-
+import './CarouselPage.css'
 
 const images = [
 	'https://picsum.photos/400/300/?image=926',
@@ -12,7 +12,7 @@ const images = [
 ];
 export default function CarouselPage(){
     return(
-        <div>
+        <div className = 'carousel__page'>
             CarouselPage
             <Carousel images = {images}/>
         </div>
