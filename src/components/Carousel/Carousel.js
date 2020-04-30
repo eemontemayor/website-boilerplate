@@ -5,7 +5,6 @@ import './Carousel.css';
 
 
 
-var hasOwn = {}.hasOwnProperty;
 
 const classNames = (...args) => {
 	var classes = [];
